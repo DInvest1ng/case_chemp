@@ -1,0 +1,102 @@
+[
+  {
+    "id": 6,
+    "name": "Игорь Лебедев",
+    "department": "Кризисное управление",
+    "experience_level": "Expert",
+    "min_score": -1.0,
+    "max_score": -0.75,
+    "languages": ["ru", "en", "de"],
+    "specialization": "Эскалированные жалобы и угрозы оттока"
+  },
+  {
+    "id": 5,
+    "name": "Ольга Новикова",
+    "department": "Работа с возражениями",
+    "experience_level": "Expert",
+    "min_score": -0.75,
+    "max_score": -0.4,
+    "languages": ["ru", "en"],
+    "specialization": "Работа с недовольными клиентами"
+  },
+  {
+    "id": 10,
+    "name": "Павел Орлов",
+    "department": "Партнёрские отношения",
+    "experience_level": "Expert",
+    "min_score": -0.4,
+    "max_score": -0.1,
+    "languages": ["ru", "en"],
+    "specialization": "Восстановление отношений с партнёрами"
+  },
+  {
+    "id": 4,
+    "name": "Максим Волков",
+    "department": "Работа с возражениями",
+    "experience_level": "Senior",
+    "min_score": -0.1,
+    "max_score": 0.2,
+    "languages": ["ru"],
+    "specialization": "Снижение напряжённости, деэскалация"
+  },
+  {
+    "id": 3,
+    "name": "Елена Козлова",
+    "department": "Клиентская поддержка",
+    "experience_level": "Middle",
+    "min_score": 0.2,
+    "max_score": 0.45,
+    "languages": ["ru", "en"],
+    "specialization": "Нейтральные обращения, уточнения"
+  },
+  {
+    "id": 8,
+    "name": "Артём Зайцев",
+    "department": "Продажи",
+    "experience_level": "Middle",
+    "min_score": 0.45,
+    "max_score": 0.65,
+    "languages": ["ru"],
+    "specialization": "Первичные предложения после поддержки"
+  },
+  {
+    "id": 2,
+    "name": "Дмитрий Смирнов",
+    "department": "Клиентская поддержка",
+    "experience_level": "Middle",
+    "min_score": 0.65,
+    "max_score": 0.8,
+    "languages": ["ru"],
+    "specialization": "Обработка стандартных запросов"
+  },
+  {
+    "id": 1,
+    "name": "Анна Петрова",
+    "department": "Клиентская поддержка",
+    "experience_level": "Senior",
+    "min_score": 0.8,
+    "max_score": 0.9,
+    "languages": ["ru", "en"],
+    "specialization": "Работа с лояльными клиентами"
+  },
+  {
+    "id": 9,
+    "name": "Виктория Романова",
+    "department": "Партнёрские отношения",
+    "experience_level": "Senior",
+    "min_score": 0.9,
+    "max_score": 0.95,
+    "languages": ["ru", "en", "fr"],
+    "specialization": "Работа с B2B-партнёрами с позитивным фидбэком"
+  },
+  {
+    "id": 7,
+    "name": "Софья Морозова",
+    "department": "Продажи",
+    "experience_level": "Senior",
+    "min_score": 0.95,
+    "max_score": 1.0,
+    "languages": ["ru", "en"],
+    "specialization": "Апселл и кросс-селл очень довольным клиентам"
+  }
+]
