@@ -29,7 +29,8 @@ class SentimentAnalyzer:
             return proba.dot([-1, 0, 1])
         return proba
 
-    def manager_selecting(self, text):
+    def manager_selecting(self, text) -> dict:
+        """Get `text`. Return the closest manager"""
         score = self.get_sentiment(text=text)
         with open("bert/mangers.json", "r", encoding="utf-8") as f:
             managers = json.load(f)
