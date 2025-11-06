@@ -1,9 +1,13 @@
-from aiogram.filters import CommandStart, Command
-from aiogram.types import Message, CallbackQuery
-from aiogram import F, Router, types
+from aiogram.filters import CommandStart
+from aiogram.types import Message
+from aiogram import F, Router
 from . import keyboards as kb
+from bert import SentimentAnalyzer
+
 
 router = Router()
+analyzer = SentimentAnalyzer()
+
 
 @router.message(CommandStart())
 async def cmd_start(message: Message):
@@ -12,11 +16,70 @@ async def cmd_start(message: Message):
         reply_markup=kb.main_keyboard,
     )
 
-@router.callback_query(F.data == "finance")
-async def cmd_start(callback: CallbackQuery):
-    await callback.message.answer(
+
+@router.message(F.text == "Финансы 💰")
+async def finances(message: Message):
+    await message.answer(
         f"Ознакомится с финансами вы можете по этой ссылке https://docs.google.com/spreadsheets/d/1JvBXwL3f5_X-j_O8IeRddz9zy9e5fvzhys3Ra7kTPaA/edit?gid=0#gid=0",
         reply_markup=kb.back_keyboard,
     )
-    await callback.answer()
 
+
+@router.message(F.text == "Инициативы 💡")
+async def show_initiatives(message: Message):
+    await message.answer(
+        "Наши инициативы для нового fidgital-офиса Альфа-Банка в Дзержинске:\n\n"
+        "Автомат выдачи карт\n"
+        "Забирай свою дебетовую карту в любое время — без очередей и менеджеров. "
+        "Просто подай заявку онлайн и получи карту по QR-коду из автомата.\n\n"
+        "Печать документов через приложение\n"
+        "Пока стоишь в очереди — заполняй и печатай нужные документы прямо в офисе. "
+        "Это ускоряет обслуживание на 33% и делает процесс удобнее.\n\n"
+        "Умный подбор менеджера\n"
+        "Система анализирует твой опыт общения с банком и подбирает того специалиста, "
+        "который лучше всего решит твою задачу — персонализированно и без лишних вопросов.\n\n"
+        "Плюс: кофе в зоне ожидания и детский уголок для семей с детьми ☕👶",
+        reply_markup=kb.back_keyboard,
+    )
+
+
+@router.message(F.text == "О команде 👥")
+async def initiative3(message: Message):
+    await message.answer(
+        (
+            "Истомин Даниил - финалист всероссийского кейс чемпионата от НИУ ВШЭ, "
+            "финалист кейс чемпионата Deadline\n\n"
+            "Анцифиров Евгений - призер заключительного этапа ВСОШ по Обществознанию, "
+            "призер 3 степень ВП по экономике\n\n"
+            "Кульбаков Матвей - призер олимпиады РАГгХИС по социологии"
+        ),
+        reply_markup=kb.back_keyboard,
+    )
+
+
+@router.message(F.text == "Инициатива 3 🚀")
+async def initiative3(message: Message):
+    await message.answer(
+        f"Напишите, пожалуйста, сообщение — и я подберу для вас менеджера.",
+        reply_markup=kb.back_keyboard,
+    )
+
+
+@router.message(F.text == "⏪ Назад")
+async def go_back(message: Message):
+    await message.answer(
+        f"Вы вернулись в главное меню. С чем бы вы хотели ознакомится?",
+        reply_markup=kb.main_keyboard,
+    )
+
+
+@router.message()
+async def select_manager(message: Message):
+    mgr = analyzer.manager_selecting(message.text)
+    if mgr:
+        name = mgr.get("name", "Неизвестный менеджер")
+        department = mgr.get("department", "нет департамента")
+        await message.answer(
+            f"Вам подходит менеджер: {name}\nДепартамент: {department}",
+            reply_markup=kb.back_keyboard,
+        )
