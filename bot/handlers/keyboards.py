@@ -17,13 +17,11 @@ main_keyboard = ReplyKeyboardMarkup(
         ],
     ],
     one_time_keyboard=True,
-    resize_keyboard=True
+    resize_keyboard=True,
 )
 
 back_keyboard = ReplyKeyboardMarkup(
-    keyboard=[
-        [KeyboardButton(text="⏪ Назад")]
-    ],
+    keyboard=[[KeyboardButton(text="⏪ Назад")]],
     one_time_keyboard=True,
-    resize_keyboard=True
+    resize_keyboard=True,
 )

@@ -3,9 +3,14 @@
 import asyncio
 from aiogram import Bot, Dispatcher
 from aiogram.types import Message
-from bot import config, handler
+from bot import handler
 
-bot = Bot(token=config.Tg_Config().bot_token)
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+bot = Bot(token=os.getenv("bot_token"))
 dp = Dispatcher()
 
 
